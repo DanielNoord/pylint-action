@@ -2,10 +2,9 @@ name: "pylint"
 description: "Run pylint over your repostiory"
 author: "Daniël van Noord"
 inputs:
-  path:
-    description: "Path to source file or directory (default='.')"
-    required: false
-    default: "."
+  github-token:
+    description: "Token to be used when authenticating to Github"
+    required: true
   version:
     description: "The pylint version to use"
     required: false
@@ -16,6 +15,12 @@ inputs:
     default: "none"
   arguments:
     description: "Command line arguments to pass to pylint"
+    required: false
+    default: "none"
+  path:
+    description:
+      "Path to source file or directory. If unspecified the action will determine the
+      changes introduced in the commit or pull request."
     required: false
     default: "none"
 runs:

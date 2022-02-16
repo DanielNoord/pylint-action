@@ -30,4 +30,5 @@ jobs:
         name: Run the action
         with:
           version: latest
-          path: tests/data/python/good_file.py
+          path: tests/data/python/bad_file.py
+          github-token: ${{ secrets.GITHUB_TOKEN }}
