@@ -8,11 +8,6 @@ describe("Download pylint", () => {
   });
 
   test("Test specified version", async () => {
-    jest.setTimeout(10000);
-
-    // Mock console.log
-    console.log = jest.fn();
-
     await installDependencies.installPylint("2.11");
 
     // Assert correct version is installed
@@ -21,9 +16,6 @@ describe("Download pylint", () => {
   }, 10000);
 
   test("Test latest version", async () => {
-    // Mock console.log
-    console.log = jest.fn();
-
     await installDependencies.installPylint("latest");
 
     // Assert correct version is installed
@@ -32,9 +24,6 @@ describe("Download pylint", () => {
   }, 10000);
 
   test("Test main", async () => {
-    // Mock console.log
-    console.log = jest.fn();
-
     await installDependencies.installPylint("main");
 
     // Assert correct version is installed
@@ -43,9 +32,6 @@ describe("Download pylint", () => {
   }, 30000);
 
   test("Test no version", async () => {
-    // Mock console.log
-    console.log = jest.fn();
-
     await installDependencies.installPylint("");
 
     // Assert correct version is installed
