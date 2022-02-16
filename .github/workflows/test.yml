@@ -1,0 +1,29 @@
+name: Tests
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "releases/*"
+
+jobs:
+  # Run tests
+  tests:
+    name: Run / Suite
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm ci
+      - run: npm test
+
+  # Test if action can run successfully
+  test-action:
+    name: Run / Action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        name: Run the action
+        with:
+          version: latest
+          path: tests/data/python/good_file.py

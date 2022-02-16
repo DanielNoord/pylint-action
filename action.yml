@@ -1,0 +1,23 @@
+name: "pylint"
+description: "Run pylint over your repostiory"
+author: "Daniël van Noord"
+inputs:
+  path:
+    description: "Path to source file or directory (default='.')"
+    required: false
+    default: "."
+  version:
+    description: "The pylint version to use"
+    required: false
+    default: latest'
+  config-file:
+    description: "The location of the configuration file to use"
+    required: false
+    default: "none"
+  arguments:
+    description: "Command line arguments to pass to pylint"
+    required: false
+    default: "none"
+runs:
+  using: "node16"
+  main: "dist/index.js"
