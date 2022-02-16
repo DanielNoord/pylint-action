@@ -6,5 +6,5 @@ def func(unused_param):
     return 1
 
 
-1
+2
 MY_VAR = 2 + func(2)

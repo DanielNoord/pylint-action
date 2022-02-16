@@ -2,6 +2,7 @@ const core = require("@actions/core");
 const installDependencies = require("./installDependencies");
 const handleOutput = require("./handleOutput");
 const executePylint = require("./executePylint");
+const getFiles = require("./getFiles");
 
 /**
  * Main entry point into the action.
@@ -9,7 +10,8 @@ const executePylint = require("./executePylint");
 async function run() {
   // Get input from user
   /** Path to run pylint over. */
-  const path = core.getInput("path");
+  // TODO: Add support for path
+  // const path = core.getInput("path");
 
   /** Pylint version to install.
    *
@@ -23,13 +25,19 @@ async function run() {
   /** Arguments to be added to the command. */
   const args = core.getInput("arguments");
 
+  /** Github access token. */
+  const token = core.getInput("github-token");
+
   try {
+    let files = "";
+    files = await getFiles.getFiles(token);
+
     // Install dependencies
     await installDependencies.installPylint(pylintVersion);
 
     // Set up the pylint command
     console.log(args);
-    let pylintCommand = `pylint ${path} --output-format=json`;
+    let pylintCommand = `pylint ${files} --output-format=json`;
     if (configFile !== "none" && configFile !== "") {
       pylintCommand += ` --rcfile=${configFile}`;
     }

@@ -17,12 +17,13 @@ inputs:
     description: "Command line arguments to pass to pylint"
     required: false
     default: "none"
-  path:
-    description:
-      "Path to source file or directory. If unspecified the action will determine the
-      changes introduced in the commit or pull request."
-    required: false
-    default: "none"
+  # TODO: Add support for path
+  # path:
+  #   description:
+  #     "Path to source file or directory. If unspecified the action will determine the
+  #     changes introduced in the commit or pull request."
+  #   required: false
+  #   default: "none"
 runs:
   using: "node16"
   main: "dist/index.js"
