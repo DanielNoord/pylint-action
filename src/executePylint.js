@@ -2,13 +2,15 @@ const exec = require("@actions/exec");
 
 /**
  * Execute pylint and return the output.
- * @param  {string} command Command to execute
+ * @param  {string} command Command to execute. 'pylint --output-format=json' gets added.
  */
 const executePylint = async function (command) {
   /** Capture variable for stdout. */
   let myOutput = "";
   /** Capture variable for stderr. */
   let myError = "";
+
+  let pylintCommand = `pylint --output-format=json ${command}`;
 
   // Set up listeners
   const options = {};
@@ -22,9 +24,9 @@ const executePylint = async function (command) {
   };
 
   try {
-    await exec.exec(command, [], options);
+    await exec.exec(pylintCommand, [], options);
   } catch (error) {
-    // Swallow that exit codes that pylint throws
+    // Swallow the exit codes that pylint throws
   }
 
   return [myOutput, myError];
