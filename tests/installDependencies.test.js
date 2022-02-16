@@ -41,4 +41,15 @@ describe("Download pylint", () => {
     const version = cp.execSync("pylint --version").toString();
     expect(version.includes("-dev")).toBeTruthy();
   }, 30000);
+
+  test("Test no version", async () => {
+    // Mock console.log
+    console.log = jest.fn();
+
+    await installDependencies.installPylint("");
+
+    // Assert correct version is installed
+    const version = cp.execSync("pylint --version").toString();
+    expect(version.includes("pylint 2.12")).toBeTruthy();
+  }, 10000);
 });
