@@ -14,6 +14,8 @@ describe("Test run", () => {
 
       // Mock console.log
       console.log = jest.fn();
+
+      testUtils.setInput("github-token", process.env["TEST_GITHUB_TOKEN"]);
     });
 
     test("Test run without inputs", () => {
