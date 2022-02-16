@@ -20,6 +20,10 @@
     "Python",
     "Pylint"
   ],
+  "prettier": {
+    "printWidth": 88,
+    "tabWidth": 2
+  },
   "author": "Daniël van Noord",
   "license": "MIT",
   "bugs": {
