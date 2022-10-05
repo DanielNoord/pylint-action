@@ -12,7 +12,7 @@ jobs:
     name: Run / Suite
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.1.0
       - run: npm ci
       - run: npm test
       - name: Upload coverage to Codecov
@@ -25,7 +25,7 @@ jobs:
     name: Run / Action
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3.1.0
       - uses: ./
         name: Run the action
         with:
