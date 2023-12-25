@@ -22,7 +22,7 @@ Description: ${pylintMessage.message}`,
           endLine: pylintMessage.endLine,
           startColumn: pylintMessage.column,
           endColumn: pylintMessage.endColumn,
-        }
+        },
       );
     });
   }

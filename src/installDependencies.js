@@ -22,7 +22,7 @@ const installPylint = async function (pylintVersion) {
     // Install latest package on main
   } else if (pylintVersion === "main") {
     await exec.exec(
-      "pip install --upgrade --quiet git+https://github.com/PyCQA/pylint"
+      "pip install --upgrade --quiet git+https://github.com/PyCQA/pylint",
     );
 
     // Install package on version as specified
