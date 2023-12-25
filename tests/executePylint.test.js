@@ -3,7 +3,7 @@ const executePylint = require("../src/executePylint");
 describe("Download pylint", () => {
   test("Test no output on correct file", async () => {
     const [output, errors] = await executePylint.executePylint(
-      "tests/data/python/good_file.py"
+      "tests/data/python/good_file.py",
     );
 
     // Assert output
@@ -13,7 +13,7 @@ describe("Download pylint", () => {
 
   test("Test output on bad file", async () => {
     const [output, errors] = await executePylint.executePylint(
-      "tests/data/python/bad_file.py"
+      "tests/data/python/bad_file.py",
     );
 
     // Assert output
